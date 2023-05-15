@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard</title>
+    <link href="/css/style3.css" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <h1>Dashboard</h1>
+
+    <div class="card">
+      <% accounts.forEach(function(user) { %>
+        <p>Name : <%= user.username %></p>
+        <p>Score : <%= user.score %></p>
+        <p>Incorrect : <%= user.incorrect %></p>
+        <p>Accuracy : <%= user.accuracy %></p>
+
+        
+      <% }); %>
+
+    </div>
+        
+     
+    <center><button type="button" onclick="window.location.href='/play'">Start Quiz</button></center>
+
+    <p></p>
+    <center><form action="/logout" method="POST">
+      <button type="submit">Logout</button>
+    </form></center>
+  </body>
+</html>

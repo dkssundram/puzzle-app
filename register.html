@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Form</title>
+	<!-- the form awesome library is used to add icons to our form -->
+	<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> -->
+	<!-- include the stylesheet file -->
+	<link href="/css/style1.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<h2>Register</h2>
+	<form action="/register" method="POST">
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username"><br><br>
+
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email"><br><br>
+
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password"><br><br>
+
+		<input type="submit" value="Submit">
+		<button type="button" onclick="window.location.href='/'">Go to Login</button>
+
+	</form>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <title>Dashboard</title>
+    <link href="/style2.css" rel="stylesheet" type="text/css">
+
+    <script src="login.js"></script>
+    <script>
+      window.addEventListener('load', function() {
+          // Check if the page was refreshed
+          if (performance.navigation.type === 1) {
+              // Page was refreshed, show the popup
+              showPopup();
+          }
+      });
+
+      function showPopup() {
+          // Create the popup dialog
+          var popup = document.createElement('div');
+          popup.id = 'popup';
+          popup.style.position = 'fixed';
+          popup.style.top = '50%';
+          popup.style.left = '50%';
+          popup.style.transform = 'translate(-50%, -50%)';
+          popup.style.padding = '20px';
+          popup.style.backgroundColor = '#f8f8f8';
+          popup.style.border = '1px solid #ccc';
+          popup.style.borderRadius = '5px';
+          popup.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.3)';
+
+          // Create the popup content
+          var message = document.createElement('p');
+          message.textContent = 'Page was refreshed. What would you like to do?';
+          popup.appendChild(message);
+
+          // Create the restart button
+          var restartButton = document.createElement('button');
+          restartButton.textContent = 'Restart Test';
+          restartButton.addEventListener('click', function() {
+              // Redirect to restart the test
+              //refresh();
+              window.location.href ='/restart';
+              // <form action="/logout" method="POST">
+              //   <button type="submit">Logout</button>
+              // </form>
+          });
+          popup.appendChild(restartButton);
+          
+
+          // Create the continue button
+          var continueButton = document.createElement('button');
+          continueButton.textContent = 'Continue with Current Score';
+          continueButton.addEventListener('click', function() {
+              // Close the popup and continue with the current score
+              document.body.removeChild(popup);
+          });
+          popup.appendChild(continueButton);
+
+          // Append the popup to the body
+          document.body.appendChild(popup);
+      }
+  </script>
+
+  </head>
+  <body>
+    <h1>Treasure Hunt</h1>
+    <p>Player Name : <%= name %></p>
+    <br>
+    <p>Ques : <%= quesNo %> <br><%= ques %>
+    </p>
+    <p>No of Correct Answers <%= correctCount %></p>
+    <form action="/play" method="POST">
+		<label for="ans">Answer:</label>
+		<input type="text" id="ans" name="ans"><br><br>
+    <input type="submit" value="Submit">
+    <!-- <button type="button" onclick="nextQuestion()">Next Question</button> -->
+
+    <script>
+      function submitForm() {
+        console.log('Form submitted!');
+        // Add your code for form submission here
+        // You can use AJAX to submit the form asynchronously if needed
+      }
+
+      function nextQuestion() {
+        console.log('Moving to the next question!');
+        
+        // Add your code for moving to the next question here
+        // You can change the window location or perform any other desired action
+        window.location.href = '/play';
+      }
+    </script>
+    
+
+
+        <!-- <input type="submit" value="Submit">
+        <button type="button" onclick="window.location.href='/play'">Next Question</button> -->
+        <!-- <button type="button" onclick= "window.location.href='/play'">Restart Game</button>
+        <button type="button" onclick= "refresh()">Restart Game</button> -->
+    </form>
+
+  
+    <form action="/logout" method="POST">
+      <button type="submit">Logout</button>
+    </form>
+    
+    
+    <p></p>
+  </body>
+</html>

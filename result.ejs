@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Result</title>
+
+    
+    <link href="/css/style3.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <h1>Result</h1>
+
+    <% if (name) { %>
+        <form action="/restart" method="GET">
+            <center><button type="submit">Replay</button></center>
+          </form>
+          <br>
+        <form action="/logout" method="POST">
+          <center><button type="submit">Logout</button></center>
+        </form>
+      <% } else { %>
+        <p>You are not logged in.</p>
+      <% } %>
+    
+    <div class="card">
+        <p>Name : <%= name %></p>
+        <p>Score : <%= correct %></p>
+        <p>Incorrect : <%= incorrect %></p>
+        <p>Accuracy : <%= accuracy %></p>
+        
+    </div>
+    <div class="image"><img src="/css/OIP.jpg" alt="Treasure Found" width="400" height="300"></div>
+    
+    
+
+    
+
+
+
+    <p></p>
+  </body>
+</html>
