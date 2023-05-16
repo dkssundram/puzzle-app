@@ -1,6 +1,7 @@
 const mysql = require('mysql');
 const express = require('express');
-const session = require('express-session');
+//const session = require('express-session');
+var session = require('cookie-session');
 const path = require('path');
 let alert = require('alert');
 
@@ -122,7 +123,7 @@ app.get('/play', (req, res) => {
     let question1='';
     if (req.session.loggedin) { 
         
-        var sql = 'SELECT question FROM questionBank where qno='+ count;
+        var sql = 'SELECT question FROM questionbank where qno='+ count;
         connection.query(sql, function(error, result){
             if (error) throw error;
             question1 = (result[0].question);
@@ -141,7 +142,7 @@ app.get('/play', (req, res) => {
 let answer1;
 app.post('/play', function(request, response) {
     let answ = request.body.ans;
-    var sql = 'SELECT answer FROM questionBank where qno='+count;
+    var sql = 'SELECT answer FROM questionbank where qno='+count;
     connection.query(sql, function(error, results, fields) {
         if (error) throw error;
         
