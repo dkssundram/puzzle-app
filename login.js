@@ -153,7 +153,7 @@ app.post('/play', function(request, response) {
             count++;
             correct++;
             let accuracy = correct/(correct+incorrect)*100;
-            var sql ='UPDATE accounts SET score = '+correct+ ', accuracy = '+accuracy+' where username = '+"'"+request.session.username+"'";
+            var sql ='UPDATE accounts SET score = '+correct+', incorrect = ' + incorrect +', accuracy = '+accuracy+' where username = '+"'"+request.session.username+"'";
             connection.query(sql, function(error, results, fields){
                 if(error) throw error;
             });
@@ -171,7 +171,8 @@ app.post('/play', function(request, response) {
             }
         }
         else{
-            alert('Incorrect Answer');
+            response.send("Incorrect Answer<br>Go Back");
+            //alert("Incorrect Answer");
             // popup.alert({
             //   content : 'Incorrect Answer'
             // });
