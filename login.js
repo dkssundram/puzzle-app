@@ -75,7 +75,7 @@ app.post('/admin', function(request, response) {
 app.get('/admind', function(request, response) {
     if (request.session.loggedin) { 
 
-        connection.query('SELECT * FROM accounts order by score desc', function(error, results, fields) {
+        connection.query('SELECT * FROM accounts order by accuracy desc', function(error, results, fields) {
            if (error) throw error;
         response.render(__dirname + '/admind.ejs', { accounts: results });
     });
