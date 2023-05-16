@@ -4,6 +4,7 @@ const session = require('express-session');
 // const session = require('cookie-session');
 const path = require('path');
 let alert = require('alert');
+var popup = require('popups');
 
 
 
@@ -170,7 +171,10 @@ app.post('/play', function(request, response) {
             }
         }
         else{
-            alert('Incorrect Answer');
+            // alert('Incorrect Answer');
+            popup.alert({
+              content : 'Incorrect Answer'
+            });
             incorrect++;
             let accuracy = correct/(correct+incorrect)*100;
             var sql ='UPDATE accounts SET incorrect = '+incorrect+ ', accuracy = '+accuracy+' where username = '+"'"+request.session.username+"'";
