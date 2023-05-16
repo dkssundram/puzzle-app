@@ -171,10 +171,10 @@ app.post('/play', function(request, response) {
             }
         }
         else{
-            // alert('Incorrect Answer');
-            popup.alert({
-              content : 'Incorrect Answer'
-            });
+            alert('Incorrect Answer');
+            // popup.alert({
+            //   content : 'Incorrect Answer'
+            // });
             incorrect++;
             let accuracy = correct/(correct+incorrect)*100;
             var sql ='UPDATE accounts SET incorrect = '+incorrect+ ', accuracy = '+accuracy+' where username = '+"'"+request.session.username+"'";
