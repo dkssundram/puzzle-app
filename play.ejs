@@ -28,14 +28,14 @@
           message.textContent = 'Page was refreshed. What would you like to do?';
           popup.appendChild(message);
           var restartButton = document.createElement('button');
-          restartButton.textContent = 'Restart Test';
+          restartButton.textContent = 'Restart';
           restartButton.addEventListener('click', function() {
               window.location.href ='/restart';
           });
           popup.appendChild(restartButton);
           
           var continueButton = document.createElement('button');
-          continueButton.textContent = 'Continue with Current Score';
+          continueButton.textContent = 'Resume';
           continueButton.addEventListener('click', function() {
               document.body.removeChild(popup);
           });
