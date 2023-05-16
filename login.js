@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 const express = require('express');
 //const session = require('express-session');
-var session = require('cookie-session');
+const session = require('cookie-session');
 const path = require('path');
 let alert = require('alert');
 
