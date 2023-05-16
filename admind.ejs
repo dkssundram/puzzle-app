@@ -9,10 +9,11 @@
 	<form action="/logout" method="POST">
 		<button type="submit">Logout</button>
 	  </form>
+	  <center><h1>Leaderboard</h1></center>
 	<table>
 		<thead>
 			<tr>
-				<th>Id</th>
+				<!-- <th>Id</th> -->
 				<th>Username</th>
 				<th>Email</th>
 				<th>Password</th>
@@ -25,7 +26,7 @@
 		<tbody>
 			<% accounts.forEach(function(user) { %>
 				<tr>
-					<td><%= user.id %></td>
+					<!-- <td><%= user.id %></td> -->
 					<td><%= user.username %></td>
 					<td><%= user.email %></td>
 					<td><%= user.password %></td>
